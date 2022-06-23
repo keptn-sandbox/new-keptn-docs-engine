@@ -13,7 +13,7 @@ const pageOptions = {
 module.exports = {
   title: 'Keptn Docs',
   tagline: 'keptn | Cloud-native application life-cycle orchestration',
-  url: 'https://keptn.sh/docs/',
+  url: 'https://keptn-experimental-docs-site.netlify.app/',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
