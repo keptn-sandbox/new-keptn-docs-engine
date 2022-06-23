@@ -1,132 +1,152 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+/* eslint-disable */
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { tailwindPlugin, webpackPlugin } = require('./src/plugins');
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
-
-  presets: [
-    [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      }),
-    ],
-  ],
-
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      navbar: {
-        title: 'My Site',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
-        items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+const pageOptions = {
+  sidebarCollapsible: true,
+  editUrl: 'https://github.com/keptn-sandbox/new-keptn-docs-engine/tree/main',
+  showLastUpdateAuthor: true,
+  showLastUpdateTime: true,
 };
 
-module.exports = config;
+/** @type {import('@docusaurus/types').DocusaurusConfig} */
+module.exports = {
+  title: 'Keptn Docs',
+  tagline: 'keptn | Cloud-native application life-cycle orchestration',
+  url: 'https://keptn.sh/docs/',
+  baseUrl: '/',
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'favicon.png',
+  organizationName: 'keptn-sandbox', // Usually your GitHub org/user name.
+  projectName: 'new-keptn-docs-engine', // Usually your repo name.
+  clientModules: [require.resolve('./src/css/tailwind.css')],
+  themeConfig: {
+    image: '/keptn-logo-square.png',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+    },
+    navbar: {
+      hideOnScroll: true,
+      logo: {
+        alt: 'Keptn Docs',
+        src: '/keptn-logo.svg',
+      },
+      items: [
+        {
+          label: 'Home',
+          to: '/',
+          activeBaseRegex: '(^/docs)',
+        },
+        {
+          label: 'Quick Start',
+          to: '/quickstart/quickstart',
+        },
+        {
+          label: 'Concepts',
+          to: '/concepts/concepts',
+        },
+        {
+          label: 'Tutorials',
+          to: '/tutorials/tutorials',
+        },
+        {
+          label: 'Roadmap',
+          to: '/roadmap/roadmap',
+        },
+        {
+          label: 'Integrations',
+          to: '/integrations/integrations',
+        },
+        {
+          label: 'News',
+          to: '/news/news',
+        },
+      ],
+    },
+    hideableSidebar: true,
+    prism: {
+      theme: require('prism-react-renderer/themes/vsDark'),
+    },
+  },
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          path: 'docs/main',
+          id: 'default',
+          routeBasePath: 'docs',
+          sidebarPath: require.resolve('./sidebars/sidebars-docs.js'),
+          sidebarCollapsible: false,
+        },
+        blog: false,
+      },
+    ],
+  ],
+  plugins: [
+    tailwindPlugin,
+    webpackPlugin,
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/quickstart',
+        routeBasePath: 'quickstart',
+        id: 'quickstart',
+        sidebarPath: require.resolve('./sidebars/sidebars-quickstart.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/concepts',
+        routeBasePath: 'concepts',
+        id: 'concepts',
+        sidebarPath: require.resolve('./sidebars/sidebars-concepts.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/tutorials',
+        routeBasePath: 'tutorials',
+        id: 'tutorials',
+        sidebarPath: require.resolve('./sidebars/sidebars-tutorials.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/roadmap',
+        routeBasePath: 'roadmap',
+        id: 'roadmap',
+        sidebarPath: require.resolve('./sidebars/sidebars-roadmap.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/integrations',
+        routeBasePath: 'integrations',
+        id: 'integrations',
+        sidebarPath: require.resolve('./sidebars/sidebars-integrations.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/news',
+        routeBasePath: 'news',
+        id: 'news',
+        sidebarPath: require.resolve('./sidebars/sidebars-news.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+  ],
+};
