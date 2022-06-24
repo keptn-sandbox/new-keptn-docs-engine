@@ -34,19 +34,35 @@ This section describes how you can get our documentation portal up and running o
 
 ### Installation
 
-1. Clone the repo
+1. Fork this repository in your GitHub account
+
+2. Clone the repository using different ways of your choice in your local machine
+
+> Cloning the repository using HTTPS:
 
 ```shell
-git clone https://github.com/keptn-sandbox/new-keptn-docs-engine
+git clone https://github.com/<USERNAME>/new-keptn-docs-engine.git
 ```
 
-2. Install NPM packages
+> Cloning the repository using SSH:
+
+```shell
+git@github.com:<USERNAME>/new-keptn-docs-engine.git
+```
+
+> Cloning the repository using GitHub CLI:
+
+```shell
+gh repo clone <USERNAME>/new-keptn-docs-engine
+```
+
+3. Install NPM packages
 
 ```shell
 npm install
 ```
 
-3. Run the app
+4. Run the Docusaurus site
 
 ```shell
 npm start
