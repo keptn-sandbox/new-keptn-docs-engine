@@ -1,12 +1,11 @@
 ---
-sidebar_position: 6
 title: Roadmap
-description: 'Find the Keptn Roadmap here'
-keywords: [Keptn]
-slug: roadmap
+description: Find the Keptn Roadmap here
+icon: concepts
+layout: quickstart
+weight: 90
+hidechildren: true # this flag hides all sub pages in the sidebar-multicard.html
 ---
-
-# Roadmap
 
 **Please follow this link to get to the Keptn [Roadmap](https://github.com/orgs/keptn/projects/1) maintained at GitHub**
 

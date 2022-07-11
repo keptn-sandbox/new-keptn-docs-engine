@@ -1,11 +1,11 @@
 ---
-sidebar_position: 1
 title: Explore Keptn
-description: 'Familiarize yourself with Keptn without installation'
-keywords: [Keptn]
+description: Familiarize yourself with Keptn without installation
+icon: concepts
+layout: quickstart
+weight: 10
+hidechildren: true # this flag hides all sub-pages in the sidebar-multicard.html
 ---
-
-# Explore Keptn
 
 The [Keptn End-to-End Delivery](https://killercoda.com/keptn/scenario/keptn-end-to-end-delivery) exercise
 uses [KillerCoda](https://killercoda.com/) to quickly introduce you to Keptn
