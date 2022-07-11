@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 const { ProvidePlugin } = require('webpack');
 const path = require('path');
 

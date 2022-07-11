@@ -156,7 +156,7 @@ export default function Footer() {
                 <li>
                   <Link
                     href="https://github.com/keptn/keptn/releases/"
-                    className="text-current hover:no-underline"
+                    className="dot-after text-current hover:no-underline"
                   >
                     Releases
                   </Link>

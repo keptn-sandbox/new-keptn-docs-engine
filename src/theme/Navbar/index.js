@@ -24,11 +24,10 @@ import styles from './styles.module.css'; // retrocompatible with v1
 import Link from '@docusaurus/Link';
 import Logo from '@site/src/components/KeptnLogo';
 
-import useIsBrowser from '@docusaurus/useIsBrowser';
-
 import { MenuIcon, ExternalLinkIcon } from '@heroicons/react/outline';
 import { Github, Slack } from '@styled-icons/boxicons-logos';
 import ThemeSwitcher from '@site/src/components/ThemeSwitcher';
+import SearchBar from '@theme/SearchBar';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -204,34 +203,8 @@ function NavbarMobileSidebar({ sidebarShown, toggleSidebar }) {
   );
 }
 
-const getPage = () => {
-  const [, doc] = window.location.pathname.split('/');
-
-  switch (doc) {
-    case 'docs':
-      return 'home';
-    case 'quickstart':
-      return 'quickstart';
-    case 'concepts':
-      return 'concepts';
-    case 'tutorials':
-      return 'tutorials';
-    case 'roadmap':
-      return 'roadmap';
-    case 'integrations':
-      return 'integrations';
-    case 'news':
-      return 'news';
-    default:
-      return null;
-  }
-};
-
 function Navbar() {
   const mobileSidebar = useMobileSidebar();
-
-  const isBrowser = useIsBrowser();
-  const page = isBrowser ? getPage() : null;
 
   return (
     <nav
@@ -254,70 +227,6 @@ function Navbar() {
               <Logo />
             </Link>
           </div>
-
-          <div className="hidden space-x-6 text-text-100 lg:flex">
-            <Link
-              to="/"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === '' ? 'text-primary-100' : 'text-text-100'
-              )}
-            ></Link>
-            <Link
-              to="/quickstart/quickstart"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === 'quickstart' ? 'text-primary-100' : 'text-text-100'
-              )}
-            >
-              Quick Start
-            </Link>
-            <Link
-              to="/concepts/concepts"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === 'concepts' ? 'text-primary-100' : 'text-text-100'
-              )}
-            >
-              Concepts
-            </Link>
-            <Link
-              to="/tutorials/tutorials"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === 'tutorials' ? 'text-primary-100' : 'text-text-100'
-              )}
-            >
-              Tutorials
-            </Link>
-            <Link
-              to="/roadmap/roadmap"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === 'roadmap' ? 'text-primary-100' : 'text-text-100'
-              )}
-            >
-              Roadmap
-            </Link>
-            <Link
-              to="/integrations/integrations"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === 'integrations' ? 'text-primary-100' : 'text-text-100'
-              )}
-            >
-              Integrations
-            </Link>
-            <Link
-              to="/news/news"
-              className={clsx(
-                'text-sm font-medium hover:no-underline',
-                page === 'news' ? 'text-primary-100' : 'text-text-100'
-              )}
-            >
-              News
-            </Link>
-          </div>
         </div>
 
         <div className="flex flex-1 items-center justify-end">
@@ -333,6 +242,7 @@ function Navbar() {
           >
             <Slack className="mr-2 h-6" />
           </Link>
+          <SearchBar />
           <div className="hidden items-center lg:flex">
             <Link
               href="https://keptn.sh/"

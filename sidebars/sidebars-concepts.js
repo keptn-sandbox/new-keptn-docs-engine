@@ -9,12 +9,25 @@ module.exports = {
         {
           type: 'link',
           label: 'Introduction',
-          href: '/docs/home/introduction',
+          href: '/home/introduction',
         },
         {
           type: 'link',
           label: 'Releases',
-          href: '/docs/home/introduction#releases',
+          href: '/home/introduction#releases',
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Explore Keptn',
+      collapsed: true,
+      collapsible: true,
+      items: [
+        {
+          type: 'link',
+          label: 'Explore Keptn',
+          href: '/explore_keptn/explore_keptn',
         },
       ],
     },
@@ -27,7 +40,7 @@ module.exports = {
         {
           type: 'link',
           label: 'Quick Start',
-          href: '/docs/quickstart/quickstart',
+          href: '/quickstart/quickstart',
         },
       ],
     },
@@ -38,6 +51,19 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Installation',
+      collapsed: true,
+      collapsible: true,
+      items: [
+        {
+          type: 'link',
+          label: 'Installation',
+          href: '/installation/installation',
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Tutorials',
       collapsed: true,
       collapsible: true,
@@ -45,7 +71,7 @@ module.exports = {
         {
           type: 'link',
           label: 'Tutorials',
-          href: '/docs/tutorials/tutorials',
+          href: '/tutorials/tutorials',
         },
       ],
     },
@@ -58,7 +84,7 @@ module.exports = {
         {
           type: 'link',
           label: 'Roadmap',
-          href: '/docs/roadmap/roadmap',
+          href: '/roadmap/roadmap',
         },
       ],
     },
@@ -71,7 +97,7 @@ module.exports = {
         {
           type: 'link',
           label: 'Integrations',
-          href: '/docs/integrations/integrations',
+          href: '/integrations/integrations',
         },
       ],
     },
@@ -84,7 +110,7 @@ module.exports = {
         {
           type: 'link',
           label: 'News',
-          href: '/docs/news/news',
+          href: '/news/news',
         },
       ],
     },

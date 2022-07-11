@@ -1,6 +1,6 @@
 {
   "name": "keptn-docs",
-  "version": "1.14.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -13,10 +13,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
+    "format": "prettier --write '**/*.{css,html,js,json,jsx,md,mdx,ts,tsx,yaml,yml}'",
     "lint": "eslint . --ext .ts --ext .js --ext .jsx --ext .tsx",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write 'src/**/*.{css,html,js,json,jsx,md,mdx,ts,tsx,yaml,yml}' 'docs/**/*.{css,html,js,json,jsx,md,mdx,ts,tsx,yaml,yml}'",
-    "test": "jest --passWithNoTests"
+    "lint:fix": "yarn run lint --fix"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.6",
@@ -39,7 +38,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
-    "jest": "^27.5.1",
     "patch-package": "^6.4.7",
     "path-browserify": "^1.0.1",
     "postcss-import": "^14.0.2",

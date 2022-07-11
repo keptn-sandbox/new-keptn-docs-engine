@@ -45,6 +45,15 @@ import { HashChange } from '@site/src/components/HashChange';
 <div className="grid xl:grid-cols-6 gap-4">
 
 <GetStartedCard
+  title="Explore Keptn"
+  descriptionText=""
+  className="from-[#1488CC] to-[#2B32B2] xl:col-span-2"
+  getStartedLink="/explore_keptn/explore_keptn"
+  BGIcon={KeptnCardIcon}
+  bgClassName="block rotate-[-5deg] right-1 bottom-[-0.5rem]"
+/>
+
+<GetStartedCard
   title="Quick Start"
   descriptionText=""
   className="from-[#4B6CB7] to-[#182848] xl:col-span-2"
@@ -58,6 +67,15 @@ import { HashChange } from '@site/src/components/HashChange';
   descriptionText=""
   className="from-[#1488CC] to-[#2B32B2] xl:col-span-2"
   getStartedLink="/concepts/concepts"
+  BGIcon={KeptnCardIcon}
+  bgClassName="block rotate-[-5deg] right-1 bottom-[-0.5rem]"
+/>
+
+<GetStartedCard
+  title="Installation"
+  descriptionText=""
+  className="bg-gradient-to-rl from-[#FF512F] to-[#F09819] xl:col-span-2"
+  getStartedLink="/installation/installation"
   BGIcon={KeptnCardIcon}
   bgClassName="block rotate-[-5deg] right-1 bottom-[-0.5rem]"
 />
@@ -106,6 +124,14 @@ import { HashChange } from '@site/src/components/HashChange';
 
 <GridLink
   to=""
+  title="Release 0.17.x"
+  subtitle=""
+  className="xl:col-span-3"
+  Icon={<UpdateIcon className="mr-4 h-10" />}
+/>
+
+<GridLink
+  to=""
   title="Release 0.16.x"
   subtitle=""
   className="xl:col-span-3"
@@ -119,61 +145,4 @@ import { HashChange } from '@site/src/components/HashChange';
   className="xl:col-span-3"
   Icon={<UpdateIcon className="mr-4 h-10" />}
 />
-
-<GridLink
-  to=""
-  title="Release 0.14.x"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
-<GridLink
-  to=""
-  title="Release 0.13.x"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
-<GridLink
-  to=""
-  title="Release 0.12.x"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
-<GridLink
-  to=""
-  title="Release 0.11.x"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
-<GridLink
-  to=""
-  title="Release 0.10.0"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
-<GridLink
-  to=""
-  title="Release 0.9.2"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
-<GridLink
-  to=""
-  title="Release 0.8.7"
-  subtitle=""
-  className="xl:col-span-3"
-  Icon={<UpdateIcon className="mr-4 h-10" />}
-/>
-
 </div>

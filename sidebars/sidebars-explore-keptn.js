@@ -21,15 +21,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Explore Keptn',
-      collapsed: true,
-      collapsible: true,
-      items: [
-        {
-          type: 'link',
-          label: 'Explore Keptn',
-          href: '/explore_keptn/explore_keptn',
-        },
-      ],
+      items: ['explore_keptn'],
     },
     {
       type: 'category',
@@ -112,7 +104,15 @@ module.exports = {
     {
       type: 'category',
       label: 'News',
-      items: ['news'],
+      collapsed: true,
+      collapsible: true,
+      items: [
+        {
+          type: 'link',
+          label: 'News',
+          href: '/news/news',
+        },
+      ],
     },
   ],
 };

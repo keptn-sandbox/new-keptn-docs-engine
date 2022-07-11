@@ -46,6 +46,11 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Installation',
+      items: ['installation'],
+    },
+    {
+      type: 'category',
       label: 'Concepts',
       collapsed: true,
       collapsible: true,
@@ -54,19 +59,6 @@ module.exports = {
           type: 'link',
           label: 'Concepts',
           href: '/concepts/concepts',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Installation',
-      collapsed: true,
-      collapsible: true,
-      items: [
-        {
-          type: 'link',
-          label: 'Installation',
-          href: '/installation/installation',
         },
       ],
     },
@@ -112,7 +104,15 @@ module.exports = {
     {
       type: 'category',
       label: 'News',
-      items: ['news'],
+      collapsed: true,
+      collapsible: true,
+      items: [
+        {
+          type: 'link',
+          label: 'News',
+          href: '/news/news',
+        },
+      ],
     },
   ],
 };

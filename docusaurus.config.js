@@ -1,13 +1,4 @@
-/* eslint-disable */
-
 const { tailwindPlugin, webpackPlugin } = require('./src/plugins');
-
-const pageOptions = {
-  sidebarCollapsible: true,
-  editUrl: 'https://github.com/keptn-sandbox/new-keptn-docs-engine/tree/main',
-  showLastUpdateAuthor: true,
-  showLastUpdateTime: true,
-};
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -27,43 +18,20 @@ module.exports = {
       defaultMode: 'dark',
       disableSwitch: true,
     },
+    announcementBar: {
+      id: 'keptn_0.17.0',
+      content:
+        'Keptn 0.17.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docs/news/release_announcements/keptn-0170/">details on this release here.</a>',
+      backgroundColor: '#006bba',
+      textColor: '#ffffff',
+      isCloseable: true,
+    },
     navbar: {
       hideOnScroll: true,
       logo: {
         alt: 'Keptn Docs',
         src: '/keptn-logo.svg',
       },
-      items: [
-        {
-          label: 'Home',
-          to: '/',
-          activeBaseRegex: '(^/docs)',
-        },
-        {
-          label: 'Quick Start',
-          to: '/quickstart/quickstart',
-        },
-        {
-          label: 'Concepts',
-          to: '/concepts/concepts',
-        },
-        {
-          label: 'Tutorials',
-          to: '/tutorials/tutorials',
-        },
-        {
-          label: 'Roadmap',
-          to: '/roadmap/roadmap',
-        },
-        {
-          label: 'Integrations',
-          to: '/integrations/integrations',
-        },
-        {
-          label: 'News',
-          to: '/news/news',
-        },
-      ],
     },
     hideableSidebar: true,
     prism: {
@@ -91,6 +59,16 @@ module.exports = {
     [
       '@docusaurus/plugin-content-docs',
       {
+        path: 'docs/explore_keptn',
+        routeBasePath: 'explore_keptn',
+        id: 'explore_keptn',
+        sidebarPath: require.resolve('./sidebars/sidebars-explore-keptn.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
         path: 'docs/quickstart',
         routeBasePath: 'quickstart',
         id: 'quickstart',
@@ -105,6 +83,16 @@ module.exports = {
         routeBasePath: 'concepts',
         id: 'concepts',
         sidebarPath: require.resolve('./sidebars/sidebars-concepts.js'),
+        sidebarCollapsible: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        path: 'docs/installation',
+        routeBasePath: 'installation',
+        id: 'installation',
+        sidebarPath: require.resolve('./sidebars/sidebars-installation.js'),
         sidebarCollapsible: false,
       },
     ],
