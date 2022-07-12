@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Keptn Docs',
-  tagline: 'keptn | Cloud-native application life-cycle orchestration',
-  url: 'https://keptn.sh/docs/',
+  tagline: 'Keptn | Cloud-native application life-cycle orchestration',
+  url: 'https://keptn.sh/docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -33,6 +33,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
         },
         blog: false,
@@ -49,7 +50,7 @@ const config = {
       announcementBar: {
         id: 'keptn_0.17.0',
         content:
-          'Keptn 0.17.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docs/news/release_announcements/keptn-0170/">details on this release here.</a>',
+          'Keptn 0.17.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docsnews/release_announcements/keptn-0170/">details on this release here.</a>',
         backgroundColor: '#006bba',
         textColor: '#ffffff',
         isCloseable: true,
@@ -61,8 +62,7 @@ const config = {
         },
         items: [
           {
-            href: '/docs/introduction',
-            label: 'Docs',
+            type: 'docsVersionDropdown',
             position: 'left',
           },
           {
@@ -83,7 +83,7 @@ const config = {
           src: 'img/keptn-logo.svg',
           href: 'https://keptn.sh/',
         },
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Sitemap',
@@ -94,7 +94,7 @@ const config = {
               },
               {
                 label: 'Docs',
-                to: 'https://keptn.sh/docs/',
+                to: 'https://keptn.sh/docs',
               },
             ],
           },
@@ -113,22 +113,22 @@ const config = {
           },
         ],
         copyright: `
-        © 2022 The Keptn Authors | Documentation Distributed under CC-BY-4.0© 2022 The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our  <a href="https://keptn.sh/docs/">Trademark Usage</a>`,
+        © 2022 The Keptn Authors | Documentation Distributed under CC-BY-4.0© 2022 The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our  <a href="https://keptn.sh/docs">Trademark Usage</a>`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
-    plugins: [
-      [
-        require.resolve("@easyops-cn/docusaurus-search-local"),
-        {
-          hashed: true,
-          language: ["en"],
-        }
-      ],
-    ]
+  plugins: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        language: ['en'],
+      },
+    ],
+  ],
 };
 
 module.exports = config;
