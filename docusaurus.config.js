@@ -1,140 +1,134 @@
-const { tailwindPlugin, webpackPlugin } = require('./src/plugins');
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
 
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
-module.exports = {
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'Keptn Docs',
   tagline: 'keptn | Cloud-native application life-cycle orchestration',
   url: 'https://keptn.sh/docs/',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'favicon.png',
+  favicon: 'img/favicon.png',
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'keptn-sandbox', // Usually your GitHub org/user name.
   projectName: 'new-keptn-docs-engine', // Usually your repo name.
-  clientModules: [require.resolve('./src/css/tailwind.css')],
-  themeConfig: {
-    image: '/keptn-logo-square.png',
-    colorMode: {
-      defaultMode: 'dark',
-      disableSwitch: true,
-    },
-    announcementBar: {
-      id: 'keptn_0.17.0',
-      content:
-        'Keptn 0.17.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docs/news/release_announcements/keptn-0170/">details on this release here.</a>',
-      backgroundColor: '#006bba',
-      textColor: '#ffffff',
-      isCloseable: true,
-    },
-    navbar: {
-      hideOnScroll: true,
-      logo: {
-        alt: 'Keptn Docs',
-        src: '/keptn-logo.svg',
-      },
-    },
-    hideableSidebar: true,
-    prism: {
-      theme: require('prism-react-renderer/themes/vsDark'),
-    },
+
+  // Even if you don't use internalization, you can use this field to set useful
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
   },
+
   presets: [
     [
-      '@docusaurus/preset-classic',
-      {
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
-          path: 'docs/main',
-          id: 'default',
-          routeBasePath: 'docs',
-          sidebarPath: require.resolve('./sidebars/sidebars-docs.js'),
-          sidebarCollapsible: false,
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         blog: false,
-      },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
     ],
   ],
-  plugins: [
-    tailwindPlugin,
-    webpackPlugin,
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/explore_keptn',
-        routeBasePath: 'explore_keptn',
-        id: 'explore_keptn',
-        sidebarPath: require.resolve('./sidebars/sidebars-explore-keptn.js'),
-        sidebarCollapsible: false,
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      announcementBar: {
+        id: 'keptn_0.17.0',
+        content:
+          'Keptn 0.17.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docs/news/release_announcements/keptn-0170/">details on this release here.</a>',
+        backgroundColor: '#006bba',
+        textColor: '#ffffff',
+        isCloseable: true,
       },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/quickstart',
-        routeBasePath: 'quickstart',
-        id: 'quickstart',
-        sidebarPath: require.resolve('./sidebars/sidebars-quickstart.js'),
-        sidebarCollapsible: false,
+      navbar: {
+        logo: {
+          alt: 'Kepnt Docs Logo',
+          src: 'img/keptn-logo.svg',
+        },
+        items: [
+          {
+            href: '/docs/introduction',
+            label: 'Docs',
+            position: 'left',
+          },
+          {
+            href: 'https://github.com/keptn',
+            label: 'GitHub',
+            position: 'right',
+          },
+          {
+            href: 'https://slack.keptn.sh/',
+            label: 'Slack',
+            position: 'right',
+          },
+        ],
       },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/concepts',
-        routeBasePath: 'concepts',
-        id: 'concepts',
-        sidebarPath: require.resolve('./sidebars/sidebars-concepts.js'),
-        sidebarCollapsible: false,
+      footer: {
+        logo: {
+          alt: 'Kepnt Docs Logo',
+          src: 'img/keptn-logo.svg',
+          href: 'https://keptn.sh/',
+        },
+        style: 'dark',
+        links: [
+          {
+            title: 'Sitemap',
+            items: [
+              {
+                label: 'Why Keptn?',
+                to: 'https://keptn.sh/why-keptn/',
+              },
+              {
+                label: 'Docs',
+                to: 'https://keptn.sh/docs/',
+              },
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'Releases',
+                to: 'https://github.com/keptn/keptn/releases/',
+              },
+              {
+                label: 'Issues',
+                to: 'https://github.com/keptn/keptn/issues',
+              },
+            ],
+          },
+        ],
+        copyright: `
+        © 2022 The Keptn Authors | Documentation Distributed under CC-BY-4.0© 2022 The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our  <a href="https://keptn.sh/docs/">Trademark Usage</a>`,
       },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/installation',
-        routeBasePath: 'installation',
-        id: 'installation',
-        sidebarPath: require.resolve('./sidebars/sidebars-installation.js'),
-        sidebarCollapsible: false,
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
       },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/tutorials',
-        routeBasePath: 'tutorials',
-        id: 'tutorials',
-        sidebarPath: require.resolve('./sidebars/sidebars-tutorials.js'),
-        sidebarCollapsible: false,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/roadmap',
-        routeBasePath: 'roadmap',
-        id: 'roadmap',
-        sidebarPath: require.resolve('./sidebars/sidebars-roadmap.js'),
-        sidebarCollapsible: false,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/integrations',
-        routeBasePath: 'integrations',
-        id: 'integrations',
-        sidebarPath: require.resolve('./sidebars/sidebars-integrations.js'),
-        sidebarCollapsible: false,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        path: 'docs/news',
-        routeBasePath: 'news',
-        id: 'news',
-        sidebarPath: require.resolve('./sidebars/sidebars-news.js'),
-        sidebarCollapsible: false,
-      },
-    ],
-  ],
+    }),
+    plugins: [
+      [
+        require.resolve("@easyops-cn/docusaurus-search-local"),
+        {
+          hashed: true,
+          language: ["en"],
+        }
+      ],
+    ]
 };
+
+module.exports = config;
