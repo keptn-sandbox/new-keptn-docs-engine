@@ -10,7 +10,7 @@ const config = {
   tagline: 'Keptn | Cloud-native application life-cycle orchestration',
   url: 'https://keptn.sh/docs',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
 
