@@ -1,1 +1,0 @@
-export { KeptnCardIcon } from './KeptnCardIcon';
