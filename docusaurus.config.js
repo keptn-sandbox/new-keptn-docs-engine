@@ -62,6 +62,10 @@ const config = {
         },
         items: [
           {
+            type: 'docsVersionDropdown',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/keptn',
             label: 'GitHub',
             position: 'right',
