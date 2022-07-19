@@ -123,8 +123,8 @@ const config = {
     plugins: [
       [require.resolve('docusaurus-lunr-search'), {
           excludeRoutes: [
-            'docs/0.15.x/**/*',
-            'docs/0.16.x/**/*',
+            '0.15.x/**/*',
+            '0.16.x/**/*',
           ]
       }]
     ],
