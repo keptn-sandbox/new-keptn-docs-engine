@@ -122,13 +122,9 @@ const config = {
     }),
   plugins: [
     [
-      require.resolve('@cmfcmf/docusaurus-search-local'),
+      require.resolve('docusaurus-lunr-search'),
       {
-        indexDocs: true,
-        language: 'en',
-        indexBlog: false,
-        style: undefined,
-        maxSearchResults: 8,
+        excludeRoutes: ['0.15.x/**/*', '0.16.x/**/*', 'next/**/*'],
       },
     ],
   ],
