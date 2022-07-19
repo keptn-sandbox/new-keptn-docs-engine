@@ -120,16 +120,8 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-  themes: [
-    [
-      '@easyops-cn/docusaurus-search-local',
-      {
-        hashed: true,
-        language: ['en'],
-        highlightSearchTermsOnTargetPage: true,
-        explicitSearchResultPath: true,
-      },
-    ],
+  plugins: [
+    '@aldridged/docusaurus-plugin-lunr',
   ],
 };
 
