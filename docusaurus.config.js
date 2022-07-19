@@ -122,10 +122,9 @@ const config = {
     }),
   plugins: [
     [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
+      require.resolve('docusaurus-lunr-search'),
       {
-        hashed: true,
-        language: ['en'],
+        excludeRoutes: ['0.15.x/**/*', '0.16.x/**/*', 'next/**/*'],
       },
     ],
   ],
