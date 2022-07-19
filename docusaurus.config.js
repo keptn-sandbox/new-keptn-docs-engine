@@ -126,6 +126,7 @@ const config = {
       {
         indexDocs: true,
         language: 'en',
+        indexBlog: false,
         style: undefined,
         maxSearchResults: 8,
       },
