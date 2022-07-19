@@ -120,7 +120,14 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-    plugins: [require.resolve('docusaurus-lunr-search')],
+    plugins: [
+      [require.resolve('docusaurus-lunr-search'), {
+          excludeRoutes: [
+            'docs/0.15.x/**/*',
+            'docs/0.16.x/**/*',
+          ]
+      }]
+    ],
 };
 
 module.exports = config;
