@@ -66,6 +66,18 @@ const config = {
             position: 'left',
           },
           {
+            to: '/docs-go-utils/introduction',
+            label: 'Keptn go-utils',
+            position: 'left',
+            activeBaseRegex: `/docs-go-utils/`,
+          },
+          {
+            to: '/docs-gh-automation/introduction',
+            label: 'Keptn GH Actions DevOps Collection',
+            position: 'left',
+            activeBaseRegex: `/docs-gh-automation/`,
+          },
+          {
             href: 'https://github.com/keptn',
             label: 'GitHub',
             position: 'right',
@@ -136,6 +148,24 @@ const config = {
       },
     }),
   plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-go-utils',
+        path: 'docs-go-utils',
+        routeBasePath: 'docs-go-utils',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-gh-automation',
+        path: 'docs-gh-automation',
+        routeBasePath: 'docs-gh-automation',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
     [
       require.resolve('docusaurus-lunr-search'),
       {
