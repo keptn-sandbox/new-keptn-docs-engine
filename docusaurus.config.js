@@ -115,6 +115,21 @@ const config = {
         copyright: `
         © 2022 The Keptn Authors | Documentation Distributed under CC-BY-4.0© 2022 The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our  <a href="https://keptn.sh/docs">Trademark Usage</a>`,
       },
+      image:
+        'https://raw.githubusercontent.com/keptn/community/main/branding/logos/keptn-transparent.png',
+      metadata: [
+        { name: 'twitter:card', content: 'summary_large_image' },
+        {
+          name: 'twitter:image',
+          content:
+            'https://raw.githubusercontent.com/keptn/community/main/branding/logos/keptn-transparent.png',
+        },
+        { name: 'twitter:title', content: 'Keptn Docs' },
+        {
+          name: 'twitter:description',
+          content: 'Welcome to Keptn Docs',
+        },
+      ],
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
