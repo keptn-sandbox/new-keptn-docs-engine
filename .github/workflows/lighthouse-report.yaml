@@ -28,7 +28,7 @@ jobs:
         with:
           urls: |
             https://deploy-preview-$PR_NUMBER--keptn-experimental-docs-site.netlify.app/
-          configPath: ./.github/workflows/lighthouserc.json
+          configPath: .github/workflows/lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
         env:

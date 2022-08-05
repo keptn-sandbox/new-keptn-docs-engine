@@ -1,10 +1,9 @@
 {
-    "ci": {
-      "collect": {
-        "settings": {
-          "skipAudits": [
-          ]
-        }
+  "ci": {
+    "collect": {
+      "settings": {
+        "skipAudits": []
       }
     }
   }
+}
