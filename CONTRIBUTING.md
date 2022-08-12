@@ -127,8 +127,7 @@ Then, you can create versions and edit older versions as mentioned above.
 
 ### Lighthouse CI
 
-Lighthouse CI is a suite of tools that make continuously running, saving, retrieving, and asserting against [Lighthouse](https://github.com/GoogleChrome/lighthouse)
-results as easily as possible.
+Lighthouse CI is a suite of tools that make continuously running, saving, retrieving, and asserting against [Lighthouse](https://github.com/GoogleChrome/lighthouse) results as easily as possible.
 
 #### Features
 
