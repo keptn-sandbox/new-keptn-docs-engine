@@ -1,18 +1,18 @@
 name: Vale Linting
-on: [pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  vale:
-    name: runner / vale
+  vale-runner:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: errata-ai/vale-action@reviewdog
+      - name: Vale Linter
+        uses: errata-ai/vale-action@reviewdog
         env:
-          # Required, set by GitHub actions automatically:
-          # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          files: .
-          version: 2.17.0
-          fail_on_error: true
+          files: docs/
