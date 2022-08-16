@@ -1,0 +1,61 @@
+extends: capitalization
+message: "'%s' should use sentence-style capitalization."
+link: 'https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings'
+level: warning
+scope: heading
+match: $sentence
+indicators:
+  - ':'
+exceptions:
+  - API
+  - AWS
+  - Azure
+  - CentOS
+  - CLI
+  - Cloud
+  - Code
+  - Cosmos
+  - DBeaver
+  - Debian
+  - Docker
+  - Emmet
+  - Go
+  - Grafana
+  - gRPC
+  - Hat
+  - I
+  - InfluxDB
+  - Java
+  - JavaScript
+  - Kubernetes
+  - Lambda
+  - Linux
+  - macOS
+  - Managed
+  - Marketplace
+  - MongoDB
+  - Node
+  - NFT
+  - pgAdmin
+  - PostgreSQL
+  - Prometheus
+  - Promscale
+  - Promscale Connector
+  - Python
+  - Red
+  - REPL
+  - Ruby
+  - Service
+  - Studio
+  - Tableau
+  - Telegraf
+  - Timescale
+  - TimescaleDB
+  - Toolkit
+  - TypeScript
+  - Ubuntu
+  - URLs
+  - Visual
+  - VPC
+  - VS
+  - Windows
