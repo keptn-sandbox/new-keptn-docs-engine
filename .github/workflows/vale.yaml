@@ -7,12 +7,13 @@ on:
     branches: [main]
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: errata-ai/vale-action@v1
-      with:
-        # path where vale checks checking only modified files.
-        files: __onlyModified
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  check-all-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: errata-ai/vale-action@v1
+        with:
+          # path where vale checks checking only modified files.
+          files: __onlyModified
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
