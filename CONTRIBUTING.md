@@ -122,3 +122,11 @@ Also, add your new docs to `./docs/go`, say you add `introduction.mdx`
 Now, run `npm start` and you can access your Go docs at [http://localhost:3000/go/introduction](http://localhost:3000/go/introduction)
 
 Then, you can create versions and edit older versions as mentioned above.
+
+## Documentation Guidelines about Tools that are integrated with this documentation site
+
+### Vale
+
+Vale is a command-line tool that brings code-like linting to prose. It's fast, cross-platform (Windows, macOS, and Linux), and highly customizable.
+
+For more information, see [https://vale.sh/](https://vale.sh/)
