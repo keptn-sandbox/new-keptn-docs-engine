@@ -35,6 +35,8 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
+          editUrl:
+            'https://github.com/keptn-sandbox/new-keptn-docs-engine/edit/main/',
         },
         blog: false,
         theme: {
