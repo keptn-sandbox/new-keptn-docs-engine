@@ -101,14 +101,14 @@ Say you're adding a new Go section:
   plugins: [
     // ...
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        path: 'docs/go',
-        routeBasePath: 'go',
-        id: 'go',
-        sidebarPath: require.resolve('./sidebars/sidebars-go.js'),
+        path: "docs/go",
+        routeBasePath: "go",
+        id: "go",
+        sidebarPath: require.resolve("./sidebars/sidebars-go.js"),
         sidebarCollapsible: false,
-        onlyIncludeVersions: !isDev ? require('./go_versions.json') : undefined,
+        onlyIncludeVersions: !isDev ? require("./go_versions.json") : undefined,
       },
     ],
   ];
@@ -146,3 +146,11 @@ The LightHouse CI should ideally:
 - Use the `actions/github-script` and `marocchino/sticky-pull-request-comment` to mark the performance as a PR comment.
 
 For more information, see [https://github.com/treosh/lighthouse-ci-action](https://github.com/treosh/lighthouse-ci-action)
+
+## Documentation Guidelines about Tools that are integrated with this documentation site
+
+### Vale
+
+Vale is a command-line tool that brings code-like linting to prose. It's fast, cross-platform (Windows, macOS, and Linux), and highly customizable.
+
+For more information, see [https://vale.sh/](https://vale.sh/)
