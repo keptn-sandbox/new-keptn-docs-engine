@@ -122,3 +122,27 @@ Also, add your new docs to `./docs/go`, say you add `introduction.mdx`
 Now, run `npm start` and you can access your Go docs at [http://localhost:3000/go/introduction](http://localhost:3000/go/introduction)
 
 Then, you can create versions and edit older versions as mentioned above.
+
+## Documentation Guidelines about Tools that are integrated with this documentation site
+
+### Lighthouse CI
+
+Lighthouse CI is a suite of tools that make continuously running, saving, retrieving, and asserting against [Lighthouse](https://github.com/GoogleChrome/lighthouse) results as easily as possible.
+
+#### Features
+
+- Get a Lighthouse report alongside every PR.
+- Prevent regressions in accessibility, SEO, offline support, and performance best practices.
+- Track performance metrics and Lighthouse scores over time.
+- Set and keep performance budgets on scripts and images.
+- Run Lighthouse many times to reduce variance.
+- Compare two versions of your site to find improvements and regressions of individual resources.
+
+The LightHouse CI should ideally:
+
+- Add `lighthousesrc.json` to identify the metrics we are looking to track.
+- Use the `jakepartusch/wait-for-netlify-action` action to grab the deployed preview link.
+- Use the `treosh/lighthouse-ci-action` to audit the preview link through LightHouse and upload generated files as an artifact.
+- Use the `actions/github-script` and `marocchino/sticky-pull-request-comment` to mark the performance as a PR comment.
+
+For more information, see [https://github.com/treosh/lighthouse-ci-action](https://github.com/treosh/lighthouse-ci-action)
