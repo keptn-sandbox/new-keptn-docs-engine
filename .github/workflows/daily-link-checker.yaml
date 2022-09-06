@@ -1,0 +1,39 @@
+name: Check all markdown links daily
+
+on:
+  schedule:
+    - cron: '0 23 * * *'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        # checks all markdown files from /docs including all subfolders
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/workflows/markdown.links.config.json'
+          folder-path: 'docs/'
+      - uses: actions/checkout@master
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        # checks all markdown files from the root but ignores subfolders
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/workflows/markdown.links.config.json'
+          max-depth: 0
+
+      # Automatically create an issue if there are broken links
+      - name: Create issue
+        if: ${{ failure() }}
+        uses: JasonEtco/create-an-issue@9e6213aec58987fa7d2f4deb8b256b99e63107a2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: .github/ISSUE_TEMPLATE/broken-link-report.md

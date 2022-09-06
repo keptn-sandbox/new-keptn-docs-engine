@@ -1,0 +1,13 @@
+{
+    "replacementPatterns": [
+      {
+        "pattern": "^/",
+        "replacement": "https://keptn-experimental-docs-site.netlify.app/"
+      }
+    ],
+    "ignorePatterns": [
+      {
+        "pattern": "^https?://localhost"
+      }
+    ]
+}
