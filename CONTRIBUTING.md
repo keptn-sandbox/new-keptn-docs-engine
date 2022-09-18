@@ -147,6 +147,8 @@ The LightHouse CI should ideally:
 
 For more information, see [https://github.com/treosh/lighthouse-ci-action](https://github.com/treosh/lighthouse-ci-action)
 
+> For the time being, we have adopted the [Google Style Guide](https://google.github.io/styleguide/) because our main motivation is to integrate the Vale GitHub Action into the new documentation site engine.
+
 ## Documentation Guidelines about Tools that are integrated with this documentation site
 
 ### Vale
@@ -154,3 +156,9 @@ For more information, see [https://github.com/treosh/lighthouse-ci-action](https
 Vale is a command-line tool that brings code-like linting to prose. It's fast, cross-platform (Windows, macOS, and Linux), and highly customizable.
 
 For more information, see [https://vale.sh/](https://vale.sh/)
+
+### Prettier GitHub Action support to format docs
+
+[Prettier](https://prettier.io/) is a very popular code formatter that uses very opinionated but sensible styles to format your code and prevent ongoing debates about code styles. So we wanted a GitHub action to automatically format your code using Prettier.
+
+> Currently, we are running prettier checks for `docs/**/*.{md,mdx}` files only.
