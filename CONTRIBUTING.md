@@ -2,12 +2,20 @@
 
 ## Table of Contents
 
-- [About the Project](#about-the-project)
+- [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+  - [Writing Documentation](#writing-documentation)
+  - [To add new sections](#to-add-new-sections)
+- [Documentation Guidelines about Tools that are integrated with this documentation site](#documentation-guidelines-about-tools-that-are-integrated-with-this-documentation-site)
+  - [Lighthouse CI](#lighthouse-ci)
+    - [Features](#features)
+- [Documentation Guidelines about Tools that are integrated with this documentation site](#documentation-guidelines-about-tools-that-are-integrated-with-this-documentation-site-1)
+  - [Vale](#vale)
+  - [Prettier GitHub Action support to format docs](#prettier-github-action-support-to-format-docs)
 
 <!-- ABOUT THE PROJECT -->
 
