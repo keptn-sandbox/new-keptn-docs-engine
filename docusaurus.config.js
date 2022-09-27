@@ -1,6 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+// @ts-ignore
+const listRemote = require("./docusaurus-lib-list-remote.js")
+const enhancementProposalsRepo = listRemote.createRepo('keptn', 'enhancement-proposals', 'master')
+const keptnDeveloperDocsLink = listRemote.createRepo('keptn', 'keptn', 'master')
+
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -52,7 +58,7 @@ const config = {
       announcementBar: {
         id: 'keptn_0.17.0',
         content:
-          'Keptn 0.17.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docsnews/release_announcements/keptn-0170/">details on this release here.</a>',
+          'Keptn 0.19.0 is available! Find all <a target="_blank" rel="noopener noreferrer" href="https://keptn.sh/docs/news/release_announcements/keptn-0190/">details on this release here.</a>',
         backgroundColor: '#006bba',
         textColor: '#ffffff',
         isCloseable: true,
@@ -68,16 +74,16 @@ const config = {
             position: 'left',
           },
           {
-            to: '/docs-go-utils/introduction',
-            label: 'Keptn go-utils',
+            to: '/docs-enhancement-proposals/introduction',
+            label: 'Keptn Enhancement Proposals',
             position: 'left',
-            activeBaseRegex: `/docs-go-utils/`,
+            activeBaseRegex: `/docs-enhancement-proposals/`,
           },
           {
-            to: '/docs-gh-automation/introduction',
-            label: 'Keptn GH Actions DevOps Collection',
+            to: '/docs-keptn-developer/introduction',
+            label: 'Keptn Developer Docs',
             position: 'left',
-            activeBaseRegex: `/docs-gh-automation/`,
+            activeBaseRegex: `/docs-keptn-developer/`,
           },
           {
             href: 'https://github.com/keptn',
@@ -151,27 +157,60 @@ const config = {
     }),
   plugins: [
     [
+      'docusaurus-plugin-remote-content',
+      {
+        name: "docs-enhancement-proposals",
+        id: "docs-enhancement-proposals",
+        outDir: "docs-enhancement-proposals",
+        sourceBaseUrl: listRemote.buildRepoRawBaseUrl(enhancementProposalsRepo),
+        documents: listRemote.listDocuments(
+            enhancementProposalsRepo,
+            [
+                '*.md', "*.mdx", "*.png"
+            ],
+            [
+              ".github/**", "text/**"
+            ]
+        )
+    },
+    ],
+    [
+      'docusaurus-plugin-remote-content',
+      {
+        name: "docs-keptn-developer",
+        id: "docs-keptn-developer",
+        outDir: "docs-keptn-developer",
+        sourceBaseUrl: listRemote.buildRepoRawBaseUrl(keptnDeveloperDocsLink),
+        documents: listRemote.listDocuments(
+            keptnDeveloperDocsLink,
+            [
+                'docs/developer/*.md', "docs/developer/*.mdx", "docs/developer/**/*.png"
+            ],
+        )
+    },
+    ],
+    [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'docs-go-utils',
-        path: 'docs-go-utils',
-        routeBasePath: 'docs-go-utils',
+        id: 'docs-enhancement-proposals',
+        path: 'docs-enhancement-proposals',
+        routeBasePath: 'docs-enhancement-proposals',
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'docs-gh-automation',
-        path: 'docs-gh-automation',
-        routeBasePath: 'docs-gh-automation',
+        id: 'docs-keptn-developer',
+        path: 'docs-keptn-developer',
+        routeBasePath: 'docs-keptn-developer',
         sidebarPath: require.resolve('./sidebars.js'),
       },
     ],
     [
       require.resolve('docusaurus-lunr-search'),
       {
-        excludeRoutes: ['0.15.x/**/*', '0.16.x/**/*', 'next/**/*'],
+        excludeRoutes: ['0.15.x/**/*', '0.16.x/**/*', '0.17.x/**/*', '0.18.x/**/*', 'next/**/*'],
       },
     ],
   ],

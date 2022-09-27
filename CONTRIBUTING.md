@@ -109,14 +109,14 @@ Say you're adding a new Go section:
   plugins: [
     // ...
     [
-      "@docusaurus/plugin-content-docs",
+      '@docusaurus/plugin-content-docs',
       {
-        path: "docs/go",
-        routeBasePath: "go",
-        id: "go",
-        sidebarPath: require.resolve("./sidebars/sidebars-go.js"),
+        path: 'docs/go',
+        routeBasePath: 'go',
+        id: 'go',
+        sidebarPath: require.resolve('./sidebars/sidebars-go.js'),
         sidebarCollapsible: false,
-        onlyIncludeVersions: !isDev ? require("./go_versions.json") : undefined,
+        onlyIncludeVersions: !isDev ? require('./go_versions.json') : undefined,
       },
     ],
   ];
