@@ -1,5 +1,7 @@
 # Website
 
+> To run this project, you need to have Node >=16.14 installed on your machine.
+
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
