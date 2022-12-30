@@ -1,0 +1,19 @@
+name: Pull remote documents
+
+on:
+  workflow_dispatch: # Triggered manually through the "Start workflow" button
+jobs:
+  list-documents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # Check out the repository
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install octokit minimatch
+      - name: List documents
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn start

@@ -60,9 +60,10 @@ const buildRepoRawBaseUrl = (repo) => {
  * @param {String[]} [excludeFilters] (Optional) Array of filters for files to be excluded.
  */
 const listDocuments = (repo, includeFilters, excludeFilters = []) => {
-  const req = 'GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=1&access_token={token}';
+  const req = 'GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=1';
   return octokit
     .request(req, {
+      headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}` },
       owner: repo.owner,
       repo: repo.name,
       tree_sha: repo.branch,
@@ -70,14 +71,12 @@ const listDocuments = (repo, includeFilters, excludeFilters = []) => {
     .then((repoTreeResponse) => {
       const repoFilePaths = extractFilesFromTree(repoTreeResponse.data.tree);
       console.log(`\nRetrieved all file paths: ${repoFilePaths}`);
-
       const resultingFilePaths = applyFilters(
         repoFilePaths,
         includeFilters,
         excludeFilters
       );
       console.log(`\nResulting file paths: ${resultingFilePaths}`);
-
       return resultingFilePaths;
     });
 };
