@@ -2,18 +2,38 @@ name: Pull remote documents
 
 on:
   workflow_dispatch: # Triggered manually through the "Start workflow" button
+
 jobs:
   list-documents:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2 # Check out the repository
-      - name: Setup Node.js
+
+      - name: Setup Node.js with NPM
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Install dependencies
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies with NPM
         run: npm install octokit minimatch
-      - name: List documents
+
+      - name: List documents with NPM
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run start
+
+      - name: Setup Node.js with Yarn
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          registry-url: https://registry.yarnpkg.com/
+
+      - name: Install dependencies with Yarn
+        run: yarn install octokit minimatch
+
+      - name: List documents with Yarn
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: yarn start
